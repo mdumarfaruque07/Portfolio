@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS VISION ACADEMY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(9, 9, 61);
+            color: white;
+            font-family: "Poppins", sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #111;
+            color: white;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 25px;
+            color: rgba(255, 255, 255, 0.871);
+        }
+
+        /* Hamburger Button */
+        .hamburger {
+            cursor: pointer;
+            display: block;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px;
+            border-radius: 3px;
+            transition: 0.4s;
+        }
+
+        /* Sidebar Menu */
+        .side-menu {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: #222;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        .side-menu a {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .side-menu a:hover {
+            background: #444;
+        }
+
+        .side-menu .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* First Section */
+        .firstsection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 40px 20px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .leftsection {
+            flex: 1 1 300px;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .leftsection span {
+            color: rgba(0, 255, 255, 0.871);
+            font-weight: 1000;
+            font-size: 25px;
+        }
+
+        .rightsection {
+            flex: 1 1 200px;
+        }
+
+        .rightsection img {
+            width: 48%;
+            height: auto;
+            border-radius: 180px;
+        }
+
+        /* Second Section */
+        .secondSection {
+            max-width: 90%;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        .secondSection h1 {
+            margin-bottom: 20px;
+        }
+
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .vertical {
+            flex: 1 1 220px;
+            background: rgba(0, 0, 0, 0.496);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .vertical img {
+            width: 40px;
+            margin-bottom: 10px;
+        }
+
+        .vertical-title {
+            font-size: 16px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .vertical-desc {
+            font-size: 13px;
+            color: gray;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgb(1, 1, 25);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin: 8px 0;
+        }
+
+        .footer ul li a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .footer ul li a:hover {
+            color: red;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons img {
+            width: 28px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        .footer-rights {
+            color: gray;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .firstsection {
+                flex-direction: column;
+            }
+
+            .box {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .contactSection {
+            background: rgba(206, 0, 0, 0.05);
+            padding: 40px 20px;
+            margin: 40px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contactSection {
+            background: #111;
+            padding: 40px 20px;
+            margin: 40px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .contact-form,
+        #contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px;
+            background: cyan;
+            color: black;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            background: cyan;
+            color: black;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .contact-form button:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: rgb(1, 1, 25);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contactSection h2 {
+            color: cyan;
+            margin-bottom: 10px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            background: cyan;
+            color: black;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .contact-form button:hover {
+            transform: scale(1.05);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .social-icons img {
+            width: 28px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        .footer-rights {
+            color: gray;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        .text-gray {
+            color: gray;
+        }
+
+        .resume-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #1e2167;
+            color: white;
+            border: 2px solid white;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: rgba(0, 255, 255, 0.653);
+            color: white;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar" id="home">
+        <h1>Md umar faruque</h1>
+        <!-- Hamburger Button -->
+        <div class="hamburger" onclick="openMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <div id="sideMenu" class="side-menu">
+        <span class="close-btn" onclick="closeMenu()">&times;</span>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#Projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <script>
+        function openMenu() {
+            document.getElementById("sideMenu").style.width = "250px";
+        }
+        function closeMenu() {
+            document.getElementById("sideMenu").style.width = "0";
+        }
+    </script>
+
+    <script>
+        function openMenu() {
+            document.getElementById("sideMenu").style.width = "250px";
+        }
+        function closeMenu() {
+            document.getElementById("sideMenu").style.width = "0";
+        }
+    </script>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="firstsection">
+            <div class="leftsection">
+                Hi, my name is <span>Md Umar Faruque</span>.
+                I am a college student and a passionate web developer. I love building websites, exploring new
+                technologies, and sharing my knowledge as a part-time YouTube content creator. 🚀
+                <div class="resume-container">
+                    <a href="Madhav Somani-Resume_2025.pdf" download class="btn">Download Resume</a>
+                    <a href="Madhav Somani-Resume_2025.pdf" target="_blank" class="btn">See Resume</a>
+                </div>
+            </div>
+            <div class="rightsection">
+                <img src="Untitled-1.png" alt="">
+            </div>
+        </section>
+
+        <!-- HR -->
+        <hr style="border: 2px solid rgb(32, 218, 224); width: 90%; margin: auto;">
+
+        <!-- Work Experience -->
+        <section class="secondSection" id="about">
+            <span class="text-gray">What I have done so far</span>
+            <h1>Work Experience</h1>
+
+            <div class="box">
+                <div class="vertical">
+                    <img src="twitter.png" alt="">
+                    <div class="vertical-title">HTML Developer - Twitter (2025-2026)</div>
+                    <div class="vertical-desc">
+                        lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+
+                <div class="vertical">
+                    <img src="facebook.png" alt="">
+                    <div class="vertical-title">Node.js Developer - Facebook (2026-2027)</div>
+                    <div class="vertical-desc">
+                        lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+
+                <div class="vertical">
+                    <img src="instagram.png" alt="">
+                    <div class="vertical-title">Python Developer - Instagram (2028-2029)</div>
+                    <div class="vertical-desc">
+                        lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+
+                <div class="vertical">
+                    <img src="youtube.png" alt="">
+                    <div class="vertical-title">Content Creator - YouTube (Part Time)</div>
+                    <div class="vertical-desc">
+                        I am a part time content creator on YouTube, where I share tutorials and tips on web development
+                        to help beginners to build projects.
+                        <a href="https://www.youtube.com/@UPSCSHORTS673" target="_blank"
+                            style="color: rgba(0, 0, 255, 0.659);">Click here to see my channel</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- HR -->
+    <hr style="border: 2px solid rgb(32, 218, 224); width: 90%; margin: auto;">
+    <section class="secondSection" id="Projects">
+        <span class="text-gray">What I have done so far</span>
+        <h1>Projects</h1>
+
+        <div class="box">
+            <div class="vertical">
+                <img src="html.png" alt="">
+                <div class="vertical-title">HTML Project</div>
+                <div class="vertical-desc">
+                    This is my first website created using HTML. It showcases my learning journey and the skills I have
+                    developed in web development.
+                    <a href="" target="_blank" style="color: rgba(0, 0, 255, 0.722);">Click
+                        here to see the project</a>
+                </div>
+            </div>
+
+            <div class="vertical">
+                <img src="facebook.png" alt="">
+                <div class="vertical-title">Node.js Project - Facebook (2026-2027)</div>
+                <div class="vertical-desc">
+                    lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+            </div>
+
+            <div class="vertical">
+                <img src="instagram.png" alt="">
+                <div class="vertical-title">Python Project - Instagram (2028-2029)</div>
+                <div class="vertical-desc">
+                    lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+            </div>
+
+            <div class="vertical">
+                <img src="youtube.png" alt="">
+                <div class="vertical-title">Java Project - YouTube (2030-2031)</div>
+                <div class="vertical-desc">
+                    lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <!-- Contact Section -->
+        <section class="contactSection" id="contact">
+            <h2>Contact Me</h2>
+            <p>If you have any questions, feel free to reach out!</p>
+
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <!-- EmailJS Script -->
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <script>
+            (function () {
+                emailjs.init("YiqgS8If977P3S1pw"); // 👈 yaha apna EmailJS public key daalo
+            })();
+
+            document.getElementById("contact-form").addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                emailjs.sendForm("service_3ylv3i7", "template_92toxzg", this)
+                    .then(function () {
+                        alert("✅ Message sent successfully!");
+                    }, function (error) {
+                        alert("❌ Failed to send message. " + JSON.stringify(error));
+                    });
+            });
+        </script>
+
+        <!-- Social Icons -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=100064595396239" target="_blank"><img src="facebook.png"
+                    alt="Facebook" style="width: 35px;"></a>
+            <a href="https://www.instagram.com/umar_faruque_x07/" target="_blank"><img src="instagram.png"
+                    alt="Instagram"></a>
+            <a href="https://www.linkedin.com/in/md-umar-9948a6292/" target="_blank"><img src="linkdin.png" alt="LinkedIn"></a>
+            <a href="https://www.youtube.com/@UPSCSHORTS673" target="_blank"><img src="youtube.png" alt="YouTube"></a>
+            <a href="https://x.com/RaiStar111077" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+        </div>
+
+        <div class="footer-rights">
+            Copyright © mdumarfaruque.com | All rights reserved.
+        </div>
+        </div>
+        </footer>
+</body>
+
+</html>
