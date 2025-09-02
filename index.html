@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PS VISION ACADEMY</title>
+    <title>Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -397,6 +397,102 @@
             color: white;
             transform: scale(1.05);
         }
+
+        .social-icons {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 26px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2.5s infinite ease-in-out;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* Gradient backgrounds */
+        .facebook {
+            background: linear-gradient(45deg, #3b5998, #1e3c72);
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+        }
+
+        .linkedin {
+            background: linear-gradient(45deg, #0077b5, #005582);
+        }
+
+        .github {
+            background: linear-gradient(45deg, #282522, #1a1818);
+        }
+
+        .twitter {
+            background: linear-gradient(45deg, #1da1f2, #0d8ddb);
+        }
+
+        /* Hover glow effect */
+        .social-icons a:hover {
+            transform: scale(1.25) rotate(8deg);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+            animation: none;
+            /* stop pulsing while hovering */
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            }
+
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        .footer-rights {
+            text-align: center;
+            padding: 20px 10px;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            /* Elegant gradient */
+            color: #fff;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-rights p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .footer-rights strong {
+            color: #ffdd57;
+            /* Highlight your name */
+            transition: color 0.3s ease;
+        }
+
+        .footer-rights strong:hover {
+            color: #ff9800;
+            /* Goldish hover effect */
+            text-shadow: 0 0 10px rgba(255, 200, 50, 0.8);
+        }
     </style>
 </head>
 
@@ -496,7 +592,7 @@
                         I am a part time content creator on YouTube, where I share tutorials and tips on web development
                         to help beginners to build projects.
                         <a href="https://www.youtube.com/@UPSCSHORTS673" target="_blank"
-                            style="color: rgba(0, 0, 255, 0.659);">Click here to see my channel</a>
+                            style="color: rgb(122, 122, 234); font-weight: bold; font-size: 14px;">Click here to see my channel</a>
                     </div>
                 </div>
             </div>
@@ -515,7 +611,8 @@
                 <div class="vertical-desc">
                     This is my first website created using HTML. It showcases my learning journey and the skills I have
                     developed in web development.
-                    <a href="" target="_blank" style="color: rgba(0, 0, 255, 0.722);">Click
+                    <a href="https://github.com/mdumarfaruque07" target="_blank"
+                        style="color: rgb(122, 122, 234); font-weight: bold; font-size: 14px;">Click
                         here to see the project</a>
                 </div>
             </div>
@@ -578,20 +675,30 @@
             });
         </script>
 
+        <!-- Font Awesome CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
         <!-- Social Icons -->
         <div class="social-icons">
-            <a href="https://www.facebook.com/profile.php?id=100064595396239" target="_blank"><img src="facebook.png"
-                    alt="Facebook" style="width: 35px;"></a>
-            <a href="https://www.instagram.com/umar_faruque_x07/" target="_blank"><img src="instagram.png"
-                    alt="Instagram"></a>
-            <a href="https://www.linkedin.com/in/md-umar-9948a6292/" target="_blank"><img src="linkdin.png" alt="LinkedIn"></a>
-            <a href="https://www.youtube.com/@UPSCSHORTS673" target="_blank"><img src="youtube.png" alt="YouTube"></a>
-            <a href="https://x.com/RaiStar111077" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+            <a href="https://www.facebook.com/profile.php?id=100064595396239" target="_blank" class="facebook"><i
+                    class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/umar_faruque_x07/" target="_blank" class="instagram"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/md-umar-9948a6292/" target="_blank" class="linkedin"><i
+                    class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/mdumarfaruque07" target="_blank" class="github"><i
+                    class="fab fa-github"></i></a>
+            <a href="https://x.com/RaiStar111077" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
         </div>
 
+        <!-- Footer -->
         <div class="footer-rights">
-            Copyright © mdumarfaruque.com | All rights reserved.
+            <p>© <span id="year"></span> <strong>Md Umar Faruque</strong> | All Rights Reserved.</p>
         </div>
+        <script>
+  // Auto update year
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
         </div>
         </footer>
 </body>
